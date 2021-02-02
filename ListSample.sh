@@ -25,7 +25,8 @@ LPOP ultimas_noticias
 RPOP ultimas_noticias
 
 # Bloqueia o comando POP caso a lista esteja vazia por um determinado tempo, ou seja, só executará o comando quando entrar item na lista
-BLPOP fila:confirma-email 30
+BLPOP fila:confirma-email 30 #Aguarda 30 segundos
+BLPOP fila:confirma-email 0  #Tempo indeterminado de espera
 
 # Remove itens da lista (dois últimos)
 LREM ultimas_noticias -2
